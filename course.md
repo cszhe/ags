@@ -1,51 +1,67 @@
 ```mermaid
 graph LR
-    ACC5(Accounting F5)
-    ACC6A(Accounting F6 AS)
-    ACC6N(Accounting F6 NCEA2)
-    ACC7A(Accounting F7 A2)
-    ACC7N(Accounting F7 NCEA3)
-    ART5(Art F5)
-    BEA4(Business Studies Economics Accounting F4)
-    BUS5(Business Studies F5)
-    COM5(Business Studies/Economics F5 NCEA1)
-    CON5(Trades and Construction F5)
-    CON6(Trades and Construction F6)
-    DAD6(Digital Art Design F6)
-    DAR5(Digital Art F5)
-    DES6(Design F6)
-    DES7(Design F7)
-    ECO5(Economics F5)
-    ESD4(Engineering Systems and Design F4)
-    ESD5(Engineering Systems and Design F5)
-    FAR5(Fine Art F5)
-    GRA4(Graphics F4)
-    IND6(Industrial Design F6)
-    IND7(Industrial Design F7)
-    VIS4(Visual Art F4)
+    4BEA(Business Studies Economics Accounting F4)
+    4ESD(Engineering Systems and Design F4)
+    4GRA(Graphics F4)
+    4VIS(Visual Art F4)
+    5ACC(Accounting F5)
+    5ART(Art F5)
+    5BUS(Business Studies F5)
+    5COM(Business Studies/Economics F5 NCEA1)
+    5CON(Trades and Construction F5)
+    5DAR(Digital Art F5)
+    5ECO(Economics F5)
+    5ESD(Engineering Systems and Design F5)
+    5FAR(Fine Art F5)
+    5GRA(Graphics/Graphic Products F5)
+    6ACC-A(Accounting F6 AS)
+    6ACC-N(Accounting F6 NCEA2)
+    6CON(Trades and Construction F6)
+    6DAD(Digital Art Design F6 AS)
+    6DAP-A(Digital Art Photography F6 AS)
+    6DES(Design F6 NCEA2)
+    6IND(Industrial Design F6 NCEA2)
+    6PHO-N(Photography F6 NCEA2)
+    6PTG(Painting F6 NCEA2)
+    7ACC-A(Accounting F7 A2)
+    7ACC-N(Accounting F7 NCEA3)
+    7CON(Trades and Construction F7 NCEA3)
+    7DES-N(Design F7 NCEA3)
+    7DES-A(Design F7 A2)
+    7IND(Industrial Design F7 NCEA3)
+    7PHO-N(Photography F7 NCEA3)
+    7PHO-A(Photography F7 A2)
+    7PTG-A(Painting F7 A2)
+    7PTG-N(Painting F7 NCEA3)
+    
 
     subgraph Art
-        VIS4 --> ART5
-        VIS4 -.->|One| DAR5
-        VIS4 -.->|One| FAR5
-        DAR5 --> DES6
-        FAR5 --> DES6
-        DAR5 --> DAD6
-        FAR5 --> DAD6
-        DES6 --> DES7
+        4VIS --> 5ART
+        4VIS -.->|One| 5DAR
+        4VIS -.->|One| 5FAR
+        5DAR --> 6DES
+        5FAR --> 6DES
+        5DAR --> 6DAD
+        5FAR --> 6DAD
+        6DES --> 7DES-N
+        6DAP-A --> 7PHO-A
+        6DAD --> 7DES-A
+        6PHO-N --> 7PHO-N
+        6PTG --> 7PTG-N
     end
 
     subgraph Technology
-        ESD4 --> ESD5
-        CON5 --> CON6
-        IND6 --> IND7
+        4GRA --> 5GRA
+        4ESD --> 5ESD
+        5CON --> 6CON
+        6IND --> 7IND
     end
 
     subgraph Accounting
-        ACC5 --> ACC6A --> ACC7A
-        ACC5 --> ACC6N --> ACC7N
-        BEA4 --> BUS5
-        BEA4 --> ECO5
+        5ACC --> 6ACC-A --> 7ACC-A
+        5ACC --> 6ACC-N --> 7ACC-N
+        4BEA --> 5BUS
+        4BEA --> 5ECO
     end
 
 ```
