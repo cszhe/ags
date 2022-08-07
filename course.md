@@ -18,30 +18,33 @@ graph LR
     6ACC-N(Accounting F6 NCEA2)
     6BUS-A(Business Studies F6 AS)
     6BUS-N(Business Studies F6 NCEA2)
-    6CON(Trades and Construction F6)
+    6CON-N(Trades and Construction F6)
     6DAD(Digital Art Design F6 AS)
     6DAP-A(Digital Art Photography F6 AS)
     6DES(Design F6 NCEA2)
     6ECO-A(Economics F6 AS)
     6ECO-N(Economics F6 NCEA2)
-    6IND(Industrial Design F6 NCEA2)
+    6GRA-A(Graphics F6 AS)
+    6IND-N(Industrial Design F6 NCEA2)
     6PHO-N(Photography F6 NCEA2)
+    6PRO-A(Product Design F6 AS)
     6PTG(Painting F6 NCEA2)
     7ACC-A(Accounting F7 A2)
     7ACC-N(Accounting F7 NCEA3)
     7BUS-A(Business Studies F7 A2)
     7BUS-N(Business Studies F7 NCEA3)
-    7CON(Trades and Construction F7 NCEA3)
+    7CON-N(Trades and Construction F7 NCEA3)
     7DES-N(Design F7 NCEA3)
     7DES-A(Design F7 A2)
     7ECO-A(Economics F7 A2)
     7ECO-N(Economics F7 NCEA3)
-    7IND(Industrial Design F7 NCEA3)
+    7GRA-A(Graphics F7 A2)
+    7IND-N(Industrial Design F7 NCEA3)
+    7PRO-A(Product Design F7 A2)
     7PHO-N(Photography F7 NCEA3)
     7PHO-A(Photography F7 A2)
     7PTG-A(Painting F7 A2)
     7PTG-N(Painting F7 NCEA3)
-    
 
     subgraph Accounting
         4BEA -.->|Recmd| 5ACC
@@ -87,8 +90,16 @@ graph LR
     subgraph Technology
         4GRA --> 5GRA
         4ESD --> 5ESD
-        5CON --> 6CON
-        6IND --> 7IND
+        5ESD -.->|OR| 6IND-N
+        5GRA -.->|OR| 6IND-N
+        4ESD -.->|Recmd| 5CON
+        5CON --> 6CON-N --> 7CON-N
+        6IND-N --> 7IND-N
+        5GRA --> 6GRA-A --> 7GRA-A
+        5GRA -.->|OR| 6PRO-A
+        5ESD -.->|OR| 6PRO-A
+        6PRO-A --> 7PRO-A
+        
     end
 
 ```
