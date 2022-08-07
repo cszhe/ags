@@ -5,7 +5,7 @@ graph LR
     4GRA(Graphics F4)
     4VIS(Visual Art F4)
     5ACC(Accounting F5)
-    5ART(Art F5)
+    5ART-N(Art F5 NCEA1)
     5BUS(Business Studies F5)
     5COM(Business Studies/Economics aka Commerce F5 NCEA1)
     5CON(Trades and Construction F5)
@@ -63,18 +63,25 @@ graph LR
     end
 
     subgraph Art
-        4VIS --> 5ART
-        4VIS -.->|One| 5DAR
-        4VIS -.->|One| 5FAR
-        5DAR --> 6DES
-        5FAR --> 6DES
-        5DAR --> 6DAD
-        5FAR --> 6DAD
+        4VIS --> 5ART-N
+        4VIS -.->|OR| 5DAR
+        4VIS -.->|OR| 5FAR
+        5DAR -.->|OR| 6DES
+        5FAR -.->|OR| 6DES
+        5DAR -.->|OR| 6DAD
+        5FAR -.->|OR| 6DAD
+        5DAR -.->|OR| 6DAP-A
+        5FAR -.->|OR| 6DAP-A
+        5DAR -.->|OR| 6PHO-N
+        5FAR -.->|OR| 6PTG
+        5DAR -.->|OR| 6PTG
+        5ART-N -.->|OR| 6PTG
         6DES --> 7DES-N
         6DAP-A --> 7PHO-A
         6DAD --> 7DES-A
         6PHO-N --> 7PHO-N
         6PTG --> 7PTG-N
+        6PTG --> 7PTG-A
     end
 
     subgraph Technology
